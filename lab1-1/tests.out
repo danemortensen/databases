@@ -1,0 +1,25 @@
+Enter a command: HAVIR, BOBBIE: grade = 2, classroom = 108, teacher = HAMER, GAVIN
+Enter a command: Enter a command: HAVIR, BOBBIE: bus route = 0
+Enter a command: Enter a command: ZAPPAVIGNA, ELLIOTT
+FRIEDSTROM, REED
+Enter a command: Enter a command: SAELEE, DANILO
+GARTH, JOHN
+Enter a command: Enter a command: RACANELLO, NOEL: grade = 6, classroom = 102
+VILARDO, EMMANUEL: grade = 2, classroom = 104
+KRAKE, VALENTIN: grade = 6, classroom = 109
+BEAN, INGER: grade = 6, classroom = 111
+BUSSMANN, BILLY: grade = 2, classroom = 108
+FEYEREISEN, WILFREDO: grade = 6, classroom = 111
+Enter a command: Enter a command: GARTH, JOHN: gpa = 3.14, teacher = FALKER, ADOLPH, bus = 0
+Enter a command: SAELEE, DANILO: gpa = 2.85, teacher = FALKER, ADOLPH, bus = 54
+Enter a command: Grade 1: avg gpa = 2.995
+Enter a command: Enter a command: 0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+Enter a command: Invalid command
+Enter a command: Invalid command
+Enter a command: 

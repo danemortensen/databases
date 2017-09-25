@@ -1,0 +1,5 @@
+Run the script with the following command:
+python schoolsearch.py
+
+Run the test suite with:
+python schoolsearch.py < tests.txt
