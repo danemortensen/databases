@@ -1,0 +1,36 @@
+Kartik Mendiratta and Dane Mortensen
+CSC 365
+Lab 1-2
+
+Run script with python schoolsearch.py
+
+Run test suite with python schoolsearch.py < tests.txt
+
+New Syntax:
+G[rade]: <grade> T[eacher]
+	Given a grade, find all teachers who teach it
+	Ex: “Grade: 4 Teacher”
+
+C[lassroom]: <classroom>
+	Given a classroom number, list all students assigned to it
+	Ex: “Classroom: 101”
+
+C[lassroom]: <classroom> T[eacher]
+	Given a classroom number, find the teacher (or teachers) teaching in it
+	Ex: “Classroom: 101 Teacher”
+
+E[nrollment]
+	Report the enrollments broken down by classroom
+	Ex: “Enrollment”
+
+D[ata]: G[rade]
+	Analyze relationship between GPA and grade
+	Ex: “Data: Grade”
+
+D[ata]: T[eacher]
+	Analyze the relationship between GPA and teacher
+	Ex: “Data: Teacher”
+
+D[ata]: B[us]
+	Analyze the relationship between GPA and bus
+	Ex: “Data: Bus”
