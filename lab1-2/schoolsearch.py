@@ -39,25 +39,73 @@ def record_teachers(teachers):
    except:
       sys.exit()
 
-def teacher_search(teachers, classroom):
+def classroom_to_teacher(teachers, classroom):
    for teacher in teachers:
       if teacher.classroom == classroom:
-         print("classroom = {0}, teacher = {1}, {2}".format(classroom,\
-               teacher.last_name, teacher.first_name))
+         return teacher
 
 def student_search(students, teachers, last_name):
    for student in students:
       if student.last_name == last_name:
          print "{0}, {1}: grade = {2}, ".format(student.last_name,\
                student.first_name, student.grade),
-         teacher_search(teachers, student.classroom)
+         teacher = classroom_to_teacher(teachers, student.classroom)
+         print "classroom = {0}, teacher = {1}, {2}".format(teacher.classroom,\
+               teacher.last_name, teacher.first_name)
+
+def student_bus_search(students, last_name):
+   for student in students:
+      if student.last_name == last_name:
+         print "{0}, {1}: bus route = {2}".format(student.last_name,\
+               student.first_name, student.bus)
 
 def handle_command(students, teachers, cmd):
    STUDENT = "Student"
+   BUS = "Bus"
+   INVALID = "Invalid command"
 
+   # S[tudent]: <last_name> [b[us]]
    if cmd[0] == STUDENT[:len(cmd[0])]:
+      # S[tudent]: <last_name>
       if len(cmd) == 2:
          student_search(students, teachers, cmd[1])
+      # S[tudent]: <last_name> B[us]
+      elif len(cmd) == 3 and cmd[2] == BUS[:len(cmd[2])]:
+         student_bus_search(students, cmd[1])
+      else:
+         print INVALID
+   elif cmd[0] == TEACHER[:len(cmd[0])]:
+      # T[eacher]: <last_name>
+      if len(cmd) == 2:
+         teacher_search(students, cmd[1])
+      else:
+         print_invalid()
+   elif cmd[0] == GRADE[:len(cmd[0])]:
+      if len(cmd) == 3 and cmd[2] == HIGH[:len(cmd[2])] and cmd[1].isdigit():
+         grade_high_search(students, int(cmd[1]))
+      elif len(cmd) == 3 and cmd[2] == LOW[:len(cmd[2])] and cmd[1].isdigit():
+         grade_low_search(students, int(cmd[1]))
+      elif len(cmd) == 2 and cmd[1].isdigit():
+         grade_search(students, int(cmd[1]))
+      else:
+         print_invalid()
+   elif cmd[0] == BUS[:len(cmd[0])]:
+      if len(cmd) == 2 and cmd[1].isdigit():
+         bus_search(students, int(cmd[1]))
+      else:
+         print_invalid()
+   elif cmd[0] == AVERAGE[:len(cmd[0])]:
+      if len(cmd) == 2 and cmd[1].isdigit():
+         average_search(students, int(cmd[1]))
+      else:
+         print_invalid()
+   elif cmd[0] == INFO[:len(cmd[0])]:
+      if len(cmd) == 1:
+         info_search(students)
+      else:
+         print_invalid()
+   else:
+      print_invalid()
 
 def main():
    students = []
