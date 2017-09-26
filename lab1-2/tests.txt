@@ -1,0 +1,146 @@
+# CSC 365. Fall 2017
+# Kartik Mendiratta, Dane Mortensen
+# Lab 1-1 test suite
+
+# TC-1
+# Tests Requirements R3, R4
+# short form command name, existing student
+# expected output: HAVIR, BOBBIE: grade = 2, classroom = 108, teacher = HAMER, GAVIN
+
+S: HAVIR
+
+# TC-2
+# Tests Requirements R3, R4
+# long form command name, non-existing student
+# expected output: <empty line>
+
+Student: CHAN
+
+# TC-3
+# Tests Requirements R3, R5
+# short form command name, existing student
+# expected output: HAVIR, BOBBIE: bus route = 0
+
+S: HAVIR B
+
+# TC-4
+# Tests Requirements R3, R5
+# long form command name, non-existing student
+# expected output: <empty line>
+
+Student: CHAN Bus
+
+# TC-5
+# Tests Requirements R3, R6
+# short form command name, existing teacher
+# expected output: 
+# ZAPPAVIGNA, ELLIOTT
+# FRIEDSTROM, REED
+
+T: BODZIONY
+
+# TC-6
+# Tests Requirements R3, R6
+# long form command name, non-existing teacher
+# expected output: <empty line>
+
+Teacher: CHAN
+
+# TC-7
+# Tests Requirements R3, R7
+# short form command name, existing grade
+# expected output:
+# SAELEE, DANILO
+# GARTH, JOHN
+
+G: 1
+
+# TC-8
+# Tests Requirements R3, R7
+# long form command name, non-existing grade
+# expected output: <empty line>
+
+Grade: 10
+
+# TC-8
+# Tests Requirements R3, R8
+# short form command name, existing bus route
+# expected output: 
+# RACANELLO, NOEL: grade = 6, classroom = 102
+# VILARDO, EMMANUEL: grade = 2, classroom = 104
+# KRAKE, VALENTIN: grade = 6, classroom = 109
+# BEAN, INGER: grade = 6, classroom = 111
+# BUSSMANN, BILLY: grade = 2, classroom = 108
+# FEYEREISEN, WILFREDO: grade = 6, classroom = 111
+
+B: 56
+
+# TC-9
+# Tests Requirements R3, R8
+# long form command name, non-exiting bus route
+# expected output: <empty line>
+
+Bus: 1
+
+# TC-10
+# Tests Requirements R3, R9
+# short form command name, highest gpa
+# expected output: GARTH, JOHN: gpa = 3.14, teacher = FALKER, ADOLPH, bus = 0
+
+G: 1 H
+
+# TC-11
+# Tests Requirements R3, R9
+# long form command name, lowest gpa
+# expected output: SAELEE, DANILO: gpa = 2.85, teacher = FALKER, ADOLPH, bus = 54
+
+Grade: 1 Low
+
+# TC-12
+# Tests Requirements R3, R10
+# short form command name, existing grade
+# expected output: Grade 1: avg gpa = 2.995
+
+A: 1
+
+# TC-13
+# Tests Requirements R3, R10
+# long form command name, non-existing grade
+# expected output: <empty line>
+
+Average: 10
+
+# TC-14
+# Tests Requirements R3, R11
+# info command
+# expected output:
+# 0: 0
+# 1: 2
+# 2: 13
+# 3: 9
+# 4: 15
+# 5: 0
+# 6: 21
+
+I
+
+# TC-15
+# Tests Requirement E1
+# invalid command
+# expected output: Invalid command
+
+Bad
+
+# TC-16
+# Tests Requirement E1
+# non-numerical grade
+# expected output: Invalid command
+
+Grade: bad
+
+# TC-17
+# Tests Requirements R3, R12
+# quit command
+# expected output: <program terminates>
+
+Q
