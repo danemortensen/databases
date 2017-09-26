@@ -69,6 +69,32 @@ def classroom_teacher_search(teachers, classroom):
       if teacher.classroom == classroom:
          print "{0}, {1}".format(teacher.last_name, teacher.first_name)
 
+def grade_teacher_search(students, teachers, grade):
+   classrooms = []
+
+   for student in students:
+      if student.grade == grade and student.classroom not in classrooms:
+         classrooms.append(student.classroom)
+
+   for teacher in teachers:
+      if teacher.classroom in classrooms:
+         print "{0}, {1}".format(teacher.last_name, teacher.first_name)
+
+def enrollment(students):
+   classrooms = []
+
+   for student in students:
+      if student.classroom not in classrooms:
+         classrooms.append(student.classroom)
+
+   classrooms.sort()
+
+   for classroom in classrooms:
+      print "classroom = {0}:".format(classroom)
+      for student in students:
+         if student.classroom == classroom:
+            print "\t{0}, {1}".format(student.last_name, student.first_name)
+
 def handle_command(students, teachers, cmd):
    STUDENT = "Student"
    TEACHER = "Teacher"
@@ -78,6 +104,7 @@ def handle_command(students, teachers, cmd):
    INFO = "Info"
    INVALID = "Invalid command"
    CLASSROOM = "Classroom"
+   ENROLLMENT = "Enrollment"
 
    # S[tudent]: <last_name> [b[us]]
    if cmd[0] == STUDENT[:len(cmd[0])]:
@@ -96,7 +123,10 @@ def handle_command(students, teachers, cmd):
       else:
          print_invalid()
    elif cmd[0] == GRADE[:len(cmd[0])]:
-      if len(cmd) == 3 and cmd[2] == HIGH[:len(cmd[2])] and cmd[1].isdigit():
+      # G[rade]: <grade> T[eacher]
+      if len(cmd) == 3 and cmd[1].isdigit() and cmd[2] == TEACHER[:len(cmd[2])]:
+         grade_teacher_search(students, teachers, int(cmd[1]))
+      elif len(cmd) == 3 and cmd[2] == HIGH[:len(cmd[2])] and cmd[1].isdigit():
          grade_high_search(students, int(cmd[1]))
       elif len(cmd) == 3 and cmd[2] == LOW[:len(cmd[2])] and cmd[1].isdigit():
          grade_low_search(students, int(cmd[1]))
@@ -128,6 +158,8 @@ def handle_command(students, teachers, cmd):
          classroom_teacher_search(teachers, int(cmd[1]))
       else:
          print INVALID
+   elif cmd[0] == ENROLLMENT[:len(cmd[0])]:
+      enrollment(students)
    else:
       print_invalid()
 
