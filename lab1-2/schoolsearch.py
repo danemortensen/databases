@@ -59,10 +59,25 @@ def student_bus_search(students, last_name):
          print "{0}, {1}: bus route = {2}".format(student.last_name,\
                student.first_name, student.bus)
 
+def classroom_search(students, classroom):
+   for student in students:
+      if student.classroom == classroom:
+         print "{0}, {1}".format(student.last_name, student.first_name)
+
+def classroom_teacher_search(teachers, classroom):
+   for teacher in teachers:
+      if teacher.classroom == classroom:
+         print "{0}, {1}".format(teacher.last_name, teacher.first_name)
+
 def handle_command(students, teachers, cmd):
    STUDENT = "Student"
+   TEACHER = "Teacher"
+   GRADE = "Grade"
    BUS = "Bus"
+   AVERAGE = "Average"
+   INFO = "Info"
    INVALID = "Invalid command"
+   CLASSROOM = "Classroom"
 
    # S[tudent]: <last_name> [b[us]]
    if cmd[0] == STUDENT[:len(cmd[0])]:
@@ -104,6 +119,15 @@ def handle_command(students, teachers, cmd):
          info_search(students)
       else:
          print_invalid()
+   # C[lassroom]: <classroom> [T[eacher]]
+   elif cmd[0] == CLASSROOM[:len(cmd[0])]:
+      # C[lassroom]: <classroom>
+      if len(cmd) == 2:
+         classroom_search(students, int(cmd[1]))
+      elif cmd[2] == TEACHER[:len(cmd[2])]:
+         classroom_teacher_search(teachers, int(cmd[1]))
+      else:
+         print INVALID
    else:
       print_invalid()
 
